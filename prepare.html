@@ -229,8 +229,8 @@ function addMessage(text, side) {
 /* Start chat */
 function startChat() {
     const messages = [
-        "Morningg😄",
-        "Hi mysentimental, sassy, girly, true friend, joker, ultra-galactic mechanic, soft girl, ulirang kaibigan, my universe sunset sunrise,fullmon lovey girly 💖",
+        "Morningg,goodafternoon or goodeve ano mang oras ako nagkalakas ng loob i send to haha😄",
+        "Mysentimental, sassy, girly, true friend, joker, ultra-galactic mechanic, soft girl, ulirang kaibigan, my universe sunset sunrise,fullmon lovey girly 💖",
         "Hahaha… I’m sorry, this is my first time asking a girl out on a date 😅",
         "Never done this before…",
         "Are you sure you want to go out with me?"
@@ -244,13 +244,13 @@ function startChat() {
             clearInterval(interval);
             replyButtons.style.display = "block";
         }
-    }, 2200);
+    }, 4000);
 }
 
 /* YES */
 function pinkReplyYes() {
     replyButtons.style.display = "none";
-    addMessage("Yes 💖", "pink");
+    addMessage("Sige na nga Bro 💖", "pink");
 
     setTimeout(() => {
         addMessage("We di ngaaa? 😍 At dahil dyan may gift ako sayo 💖", "blue");
@@ -265,7 +265,7 @@ function pinkReplyYes() {
 /* NO */
 function pinkReplyNo() {
     replyButtons.style.display = "none";
-    addMessage("No 💔", "pink");
+    addMessage("Ayaw ko Bro 💔", "pink");
 
     setTimeout(() => {
         addMessage("Awww bro zone na ni reject pa 💕", "blue");
@@ -274,7 +274,7 @@ function pinkReplyNo() {
     setTimeout(() => {
         replyButtons.innerHTML = `
             <button onclick="pinkReplyYes()">Sige na nga 💖</button>
-            <button onclick="pinkReplyYes()">Yes 💖</button>
+            <button onclick="pinkReplyYes()">Sige na nga 💖</button>
         `;
         replyButtons.style.display = "block";
     }, 2000);
