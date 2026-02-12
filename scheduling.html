@@ -20,15 +20,15 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  overflow-x:hidden;
+  padding:20px;
+  overflow:hidden;
   position:relative;
 }
 
 /* Container */
 .container{
   width:100%;
-  max-width:1100px;
-  padding:40px 20px;
+  max-width:500px;
   text-align:center;
   color:white;
   position:relative;
@@ -36,34 +36,45 @@ body{
 }
 
 h2{
-  margin-bottom:30px;
-  font-size:clamp(20px,4vw,28px);
+  margin-bottom:20px;
+  font-size:22px;
 }
 
-/* GRID CALENDAR */
+/* CALENDAR GRID */
 .calendar{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  width:100%;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
 }
 
-/* Cards */
+/* Compact Cards */
 .card{
   background:white;
   color:#FF1493;
-  padding:18px;
-  border-radius:18px;
+  border-radius:14px;
+  padding:10px 6px;
   cursor:pointer;
-  transition:0.3s ease;
-  box-shadow:0 8px 20px rgba(255,105,180,0.3);
-  font-weight:600;
+  transition:0.2s ease;
+  font-size:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.15);
+  height:75px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.card span{
+  font-size:11px;
+  font-weight:400;
 }
 
 .card:hover{
-  transform:scale(1.05);
   background:#FF1493;
   color:white;
+  transform:scale(1.05);
 }
 
 /* POPUP */
@@ -73,32 +84,32 @@ h2{
   left:50%;
   transform:translate(-50%,-50%);
   background:linear-gradient(135deg,#FFB6C1,#FF1493);
-  padding:25px;
-  border-radius:20px;
+  padding:22px;
+  border-radius:18px;
   width:90%;
-  max-width:350px;
+  max-width:320px;
   text-align:center;
   color:white;
   box-shadow:0 10px 25px rgba(0,0,0,0.4);
   display:none;
-  z-index:10;
-  animation:popIn 0.3s ease forwards;
+  z-index:5;
 }
 
 .note-box p{
   margin-bottom:15px;
-  font-size:14px;
+  font-size:13px;
   line-height:1.4;
 }
 
 .note-box button{
   margin:5px;
-  padding:8px 16px;
+  padding:8px 14px;
   border:none;
-  border-radius:12px;
+  border-radius:10px;
   font-weight:600;
   cursor:pointer;
   transition:0.2s ease;
+  font-size:13px;
 }
 
 .enter-btn,
@@ -111,45 +122,38 @@ h2{
   transform:scale(1.1);
 }
 
-@keyframes popIn{
-  0%{transform:translate(-50%,-50%) scale(0.6);opacity:0;}
-  100%{transform:translate(-50%,-50%) scale(1);opacity:1;}
-}
-
-/* HEARTS */
-.heart{
-  position:absolute;
-  font-size:24px;
-  animation:fall linear infinite;
-  z-index:1;
-  pointer-events:none;
-}
-
-@keyframes fall{
-  0%{transform:translateY(-50px) rotate(0deg);opacity:1;}
-  100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
-}
-
-/* MOBILE FIX */
-@media(max-width:600px){
-
-  body{
-    align-items:flex-start;
-  }
-
-  .container{
-    padding-top:60px;
-  }
-
+/* MOBILE */
+@media(max-width:500px){
   .calendar{
-    grid-template-columns:1fr;   /* SINGLE COLUMN */
+    grid-template-columns:repeat(3, 1fr);
   }
 
   .card{
-    width:100%;
+    height:65px;
+    font-size:11px;
   }
 }
 
+/* FALLING HEARTS */
+.heart{
+  position:fixed;
+  top:-20px;
+  font-size:20px;
+  animation:fall linear forwards;
+  pointer-events:none;
+  z-index:1;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(0) rotate(0deg);
+    opacity:1;
+  }
+  100%{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
 </style>
 </head>
 
@@ -159,49 +163,60 @@ h2{
   <h2>Exam vs Date sched 💌</h2>
 
   <div class="calendar">
-    <div class="card" data-note="Looks like we’re both busy all day Saturday. Want to do ice cream on Friday instead? Message me!">
-      Feb 13 ❤️ - Friday
+
+    <div class="card" data-note="Looks like we’re both busy on Saturday. Want to do ice cream on Friday instead? Message mo ko!">
+      Feb 13 ❤️
+      <span>Friday</span>
     </div>
 
-    <div class="card" data-note="ohhh valentines… let me cook na lang puntahan kita after class chat me what time iiwan ko mga panelist ko 😏">
-      Feb 14 ❤️ - Saturday
+    <div class="card" data-note="ohhh valentines… let me cook na lang puntahan kita after class chat me what time ko iiwan ko mga panelist ko 😏">
+      Feb 14 ❤️
+      <span>Saturday</span>
     </div>
 
-    <div class="card" data-note="Hmmmm sudden sidequest and prepare for exam sunday? 😳">
-      Feb 15 ❤️ - Sunday
+    <div class="card" data-note="Hmmmm sudden sidequest and prepare for exam week? 😳">
+      Feb 15 ❤️
+      <span>Sunday</span>
     </div>
 
     <div class="card" data-note="11:00-5:30pm exam week kainis and do you have morning class also diba?">
-      Feb 16 ❤️ - Monday
+      Feb 16 ❤️
+      <span>Monday</span>
     </div>
 
     <div class="card" data-note="Pwedeee kaso you have afternoon sched">
-      Feb 17 ❤️ - Tuesday
+      Feb 17 ❤️
+      <span>Tuesday</span>
     </div>
 
     <div class="card" data-note="Exam sched can be 2:00-6:00pm">
-      Feb 18 ❤️ - Wednesday
+      Feb 18 ❤️
+      <span>Wednesday</span>
     </div>
 
-    <div class="card" data-note="Whole sched kainiis wag na kaya me mag aral mag sugal na langg">
-      Feb 19 ❤️ - Thursday
+    <div class="card" data-note="Whole sched kainiis wag na kaya me mag aral mag sugal na langg hahahaa">
+      Feb 19 ❤️
+      <span>Thursday</span>
     </div>
 
     <div class="card" data-note="Match sched but you’ve got cooking class on Saturday, right? I figured you'd need the day to prepare things">
-      Feb 20 ❤️ - Friday Final Matchup
+      Feb 20 ❤️
+      <span>Friday Final Matchup</span>
     </div>
 
-    <div class="card" data-note="Since it's exam week, let's wait until we're finished so we can properly enjoy each other's company 💖">
-      After our exam week?
+    <div class="card" data-note="Since it's exam week, let's wait until we're finished so we can properly enjoy each other's company 💖 bakit kasi nauso yang exam exam si bong bong nga ehh">
+      After Exams ✨
+      <span>Good Option</span>
     </div>
+
   </div>
 
   <!-- POPUP -->
   <div id="noteBox" class="note-box">
     <p id="noteText"></p>
-    <button id="enterBtn" class="enter-btn">Enter 💖</button>
-    <button id="nextBtn" class="next-btn" style="display:none;">Sure ➡️</button>
-    <button onclick="closeNote()">Close</button>
+    <button id="enterBtn" class="enter-btn">Enter 💌</button>
+    <button id="nextBtn" class="next-btn" style="display:none;">Sure 🥰➡️</button>
+    <button onclick="closeNote()">Close ❌</button>
   </div>
 </div>
 
@@ -237,20 +252,29 @@ function closeNote(){
   nextBtn.style.display='none';
 }
 
-/* HEARTS */
+/* FALLING HEARTS */
 function createHearts(){
-  const colors=['#FF69B4','#FF1493','#FFB6C1','#FFC0CB'];
-  for(let i=0;i<25;i++){
-    const heart=document.createElement('div');
+  const colors = ['#FF69B4','#FF1493','#FFB6C1','#FFC0CB'];
+
+  setInterval(()=>{
+    const heart = document.createElement('div');
     heart.classList.add('heart');
-    heart.innerHTML='💖';
-    heart.style.left=Math.random()*100+'vw';
-    heart.style.animationDuration=(4+Math.random()*4)+'s';
-    heart.style.fontSize=(15+Math.random()*15)+'px';
-    heart.style.color=colors[Math.floor(Math.random()*colors.length)];
+    heart.innerHTML = '💖';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (4 + Math.random() * 3) + 's';
+    heart.style.fontSize = (14 + Math.random() * 10) + 'px';
+    heart.style.color = colors[Math.floor(Math.random()*colors.length)];
+
     document.body.appendChild(heart);
-  }
+
+    setTimeout(()=>{
+      heart.remove();
+    },7000);
+
+  },500);
 }
+
 createHearts();
 </script>
 
