@@ -11,7 +11,6 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-
     background: linear-gradient(135deg, #ffd6e8, #cce6ff);
     display: flex;
     justify-content: center;
@@ -22,7 +21,7 @@ body {
 /* MAIN CONTAINER */
 .container {
     width: 85%;
-    max-width: 520px;  /* BIGGER */
+    max-width: 520px;
     background: #ffeaf3;
     border-radius: 30px;
     box-shadow: 0 15px 40px rgba(255, 105, 180, 0.4);
@@ -34,12 +33,12 @@ h2 {
     text-align: center;
     color: #ff4d94;
     margin-bottom: 15px;
-    font-size: 28px; /* BIGGER */
+    font-size: 28px;
 }
 
 /* CHAT AREA */
 .chat-container {
-    height: 500px; /* BIGGER */
+    height: 500px;
     overflow-y: auto;
     padding: 15px;
     display: flex;
@@ -51,10 +50,10 @@ h2 {
 /* CHAT BUBBLES */
 .chat-bubble {
     max-width: 80%;
-    padding: 16px 20px; /* BIGGER */
+    padding: 16px 20px;
     margin: 8px 0;
     border-radius: 25px;
-    font-size: 17px; /* BIGGER */
+    font-size: 17px;
     line-height: 1.6;
     animation: popIn 0.3s ease;
 }
@@ -83,12 +82,12 @@ h2 {
 
 .reply-buttons button {
     margin: 8px;
-    padding: 14px 28px; /* BIGGER */
+    padding: 14px 28px;
     border-radius: 50px;
     background: #ff66aa;
     color: white;
     border: none;
-    font-size: 18px; /* BIGGER */
+    font-size: 18px;
     cursor: pointer;
     box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
     transition: transform 0.2s;
@@ -117,10 +116,10 @@ h2 {
 /* HEART BOX */
 .heart-box {
     background: linear-gradient(135deg, #ff9acb, #ffd6e8);
-    padding: 40px; /* BIGGER */
+    padding: 40px;
     border-radius: 35px;
     width: 95%;
-    max-width: 600px; /* MUCH BIGGER */
+    max-width: 600px;
     text-align: center;
     box-shadow: 0 15px 45px rgba(255, 105, 180, 0.6);
     animation: popIn 0.3s ease;
@@ -128,16 +127,21 @@ h2 {
 
 /* HEART TITLE */
 .heart-title {
-    font-size: 26px; /* BIGGER */
+    font-size: 26px;
     color: #7a003c;
     margin-bottom: 20px;
     font-weight: bold;
 }
 
-/* HEART MESSAGE TEXT */
-#heartMessage p {
-    font-size: 18px; /* BIGGER */
+/* FORMAL LETTER TEXT */
+.letter-text {
+    font-size: 18px;
     line-height: 1.8;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-y: auto;
+    max-height: 70vh; /* ensures top visible on mobile */
+    padding-right: 5px; /* spacing for scrollbar */
 }
 
 /* HEART BUTTON */
@@ -174,8 +178,10 @@ h2 {
         font-size: 16px;
     }
 
-    #heartMessage p {
+    .letter-text {
         font-size: 16px;
+        line-height: 1.6;
+        max-height: 65vh;
     }
 }
 </style>
@@ -202,16 +208,19 @@ h2 {
   </div>
 </div>
 
-<!-- HEART MESSAGE -->
+<!-- FORMAL LETTER HEART MESSAGE -->
 <div id="heartMessage" class="heart-popup hidden">
   <div class="heart-box">
-    <p>
-      Personally i want to thank you again for coming back into my life. Honestly you ghosted me three times but let’s just forget about that hahahaha 😅
-      I’ve never done this for anyone—it’s only you. I’ve never dated anyone or asked anyone out so i hope i haven’t disappointed you with my actions. I’m busy building my empire ma’am haahh but that doesn’t change how much i care.<br><br>
-      As i always say i’ll take the risk over and over again for you. Drama aside i might disappoint you sometimes but i promise i’ll keep pushing forward and i’ll make sure to win in this life. And when i do it’ll be for you.<br><br>
-      A butterfly comes to those who bloom beauty around them and i want to make my garden worthy of its wings. Ems chat me on saturday type "Pink" sa messenger then rate it 1/10.
+    <p class="letter-text">
+      Dear Ems,<br><br>
+      Personally, I want to thank you again for coming back into my life. Honestly, you ghosted me three times but let’s just forget about that hahahaha 😅<br><br>
+      I’ve never done this for anyone—it’s only you. I’ve never dated anyone or asked anyone out so I hope I haven’t disappointed you with my actions. I’m busy building my empire, ma’am haahh, but that doesn’t change how much I care.<br><br>
+      As I always say, I’ll take the risk over and over again for you. Drama aside, I might disappoint you sometimes, but I promise I’ll keep pushing forward and I’ll make sure to win in this life. And when I do, it’ll be for you.<br><br>
+      A butterfly comes to those who bloom beauty around them, and I want to make my garden worthy of its wings. Ems, chat me on Saturday and type "Pink" sa messenger then rate it 1/10.<br><br>
+      Sincerely,<br>
+      <strong>Selwyn</strong>
     </p>
-    <button class="heart-btn" onclick="closeHeartMessage()">close 💗</button>
+    <button class="heart-btn" onclick="closeHeartMessage()">Close 💗</button>
   </div>
 </div>
 
@@ -310,5 +319,3 @@ window.onload = startChat;
 
 </body>
 </html>
-
-
